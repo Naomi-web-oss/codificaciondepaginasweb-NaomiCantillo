@@ -1,14 +1,16 @@
-Portafolio de evidencias creaciòn de pàginas web 
+Portafolio de evidencias creaciòn de pàginas web
 -unidad-01-control-versiones
 instalacion y configuracion de git y git hub
 -unidad-o2-html
 -Fundamentos de internet
 -conceptos XMl
+-HTML conceptos y estructura básica.
+-Metadatos y nuestros metadatos.
+-w3c validación de html.
+-Favicon y title.
 -fundamentos de internet
 -conceptos XMl
 -materia del marco teorìco
 -unidad-02-html
 -fundamentos de internet
 -conceptos XMl
-
-
