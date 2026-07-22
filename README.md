@@ -1,7 +1,7 @@
 Portafolio de evidencias creaciòn de pàginas web
 -unidad-01-control-versiones
 instalacion y configuracion de git y git hub
--unidad-o2-html
+-unidad-02-html
 -Fundamentos de internet
 -conceptos XMl
 -HTML conceptos y estructura básica.
@@ -11,6 +11,3 @@ instalacion y configuracion de git y git hub
 -fundamentos de internet
 -conceptos XMl
 -materia del marco teorìco
--unidad-02-html
--fundamentos de internet
--conceptos XMl
