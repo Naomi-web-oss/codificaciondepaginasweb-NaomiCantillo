@@ -2028,7 +2028,7 @@ h2{font-size: 2.8rem;}
   grid-column: auto;
   grid-row: auto;
   }
-  
+
 }/*Adaptar mosaico con piezas de distinto tamaño*/
 
 @media (max-width:400px){
@@ -2038,6 +2038,18 @@ h2{font-size: 2.8rem;}
     margin-right: auto;
     /*Mostly Fluid no solo encoge tambièn se detiene*/
   }
+}
+
+/*Column Drop en zona de tarjetas de index.html*/
+@media (max-width:620px) and (max-width:500px){
+.tarjeta{
+  flex:1 1 calc(5deg var(--esp--md))
+}
+
+.tarjeta:last-child{
+  flex-basis: 10px;
+
+}
 }
 
 
