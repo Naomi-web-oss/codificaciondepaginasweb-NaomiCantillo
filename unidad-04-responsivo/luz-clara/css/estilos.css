@@ -256,6 +256,7 @@ img {
      pegado al borde de la pantalla en un teléfono.                    */
 }
 
+
 .seccion-alterna {
   background-color: var(--color-fondo-alt);
   max-width: none;

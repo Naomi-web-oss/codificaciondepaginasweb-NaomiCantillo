@@ -252,7 +252,9 @@
         <!--  MARCADOR DE IMAGEN   recursos/mapa.jpg  ·  800 × 600 px
              Puede ser una captura de mapa o una foto de la fachada -->
         <figure class="columna-imagen">
-          <img src="recursos/mapa.jpg"
+         <source media="(min-width:1024)" srcset="recursos/mapa-grande.jpg">
+         <source media="(min-width:400)" srcset="recursos/mapa-pequeña.jpg">
+          <img src="recursos/mapa-grande.jpg"
                alt="Mapa de la ubicación del estudio en Barrio Escalante"
                width="800" height="600">
           <figcaption class="imagen-pie">Estamos a dos cuadras del parque</figcaption>
