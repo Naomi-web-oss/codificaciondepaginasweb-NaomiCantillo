@@ -1,4 +1,40 @@
 
+:root {
+
+  /*  COLORES  */
+  --color-tinta:      #1A1A1A;   /* el texto principal · casi negro */
+  --color-suave:      #6B6B6B;   /* texto secundario, pies de foto */
+  --color-marca:      #2C3E50;   /* el azul del estudio */
+  --color-acento:     #C87941;   /* el terracota de los botones */
+  --color-acento-osc: #A45F2E;   /* el mismo terracota, más oscuro */
+  --color-fondo:      #FAFAF8;   /* blanco roto · no blanco puro */
+  --color-fondo-alt:  #F0EEE9;   /* para alternar secciones */
+  --color-linea:      #DDDAD3;   /* bordes y separadores */
+  --color-blanco:     #FFFFFF;
+
+  /*  TIPOGRAFÍA  */
+  --fuente-titulo: Georgia, 'Times New Roman', serif;
+  --fuente-texto:  'Segoe UI', Arial, sans-serif;
+                                             
+
+  /*  ESPACIADO  */
+  --esp-xs: 0.8rem;    /*  8px */
+  --esp-sm: 1.6rem;    /* 16px */
+  --esp-md: 2.4rem;    /* 24px */
+  --esp-lg: 4.0rem;    /* 40px */
+  --esp-xl: 8.0rem;    /* 80px */
+ 
+
+  /*  OTROS  */
+  --radio:   0.6rem;                            /*  6px */
+  --sombra-1: 0 0.2rem 0.6rem rgba(0,0,0,.06);  /* apenas separado */
+  --sombra-2: 0 0.4rem 1.2rem rgba(0,0,0,.10);  /* una tarjeta */
+  --sombra-3: 0 0.8rem 2.0rem rgba(0,0,0,.16);  /* elemento elevado */
+  --transicion: 0.25s ease;
+  --ancho-max: 120rem;                          /* 1200px */
+}
+
+
 *{
     margin:0;
     padding:0;
@@ -37,7 +73,6 @@ h1{
     left:0;
     background-color:#0c1683;
     width: 100%;
-    background-image: url(../recursos/fondo1);
     background-size: cover;
     background-repeat: center;
     padding: 30px;
@@ -86,12 +121,28 @@ main p{
     max-width: 70ch;
 }
 
-header nav{
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-size: 14px;
-    text-decoration: none;
+header{
+    background-color: #0b4fb5;
+    display: flex;   
+    flex-direction: column; 
+    gap: var(--esp-sm);  
+    justify-content: space-between; 
+    align-items: center;     
+    padding: var(--esp-sm)var(--esp-md); 
+    border-bottom: 0.1rem solid var(--color-linea);                       
+}
 
+header nav{
+  display: flex;
+  flex-direction: row;
+  gap: var(--esp-sm);
+
+}
+
+header nav li{
+    display: flex;
+    flex-direction: row;
+    gap: var(--esp-sm);
 }
 
 main a{
@@ -100,7 +151,6 @@ main a{
 }
 
 header{
-    background-image: url(../recursos/fondo-sitio-personal.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -115,7 +165,7 @@ body{
 
 footer{
     text-decoration: none;
-    background-color: #0c1683;
+    background-color: #3e47b0;
     color: white;
     margin-top: 32px;
 }
