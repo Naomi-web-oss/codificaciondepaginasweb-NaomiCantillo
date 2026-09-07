@@ -640,6 +640,8 @@ img {
    No compiten: se combinan. La regla práctica del curso es usar Grid
    para el layout general y Flexbox dentro de cada zona.               */
 
+
+
 .rejilla-galeria {
   display: grid;
   /* ACTIVA GRID. Igual que Flexbox, se declara en el CONTENEDOR.      */
@@ -964,10 +966,11 @@ img {
 
 .cita-texto {
   font-family: var(--fuente-titulo);
-  font-size: 2.2rem;
+  font-size: 1.6rem;
   font-style: italic;
-  line-height: 1.5;
+  line-height: 1.6;
   position: relative;
+
   /* Este relative levanta el texto por encima de la comilla decorativa,
      para que no quede tapado por ella.                                */
 }
@@ -976,6 +979,12 @@ img {
   color: var(--color-suave);
   font-size: 1.4rem;
   text-align: right;
+}
+
+#testimonio p,
+.cita-texto{
+font-size:1.6rem ;
+line-height: 1.6;
 }
 
 
@@ -1308,6 +1317,17 @@ img {
   margin-bottom: 0;
 }
 
+/*LOS CINCO PATRONES*/
+/*SON LAS CINCO FORMAS EN QUE UN DISEÑO PUEDE REORGANIZARSE AL CAMBIAR EL ANCHO*/
+/*1.MOSTLY FLUID. UNA REJILLA QUE SE ENCOGE Y AL LLEGAR AL MINIMO SUS ELEMENTOS BAJAN DE LÌNEA MÀS EN PANTALLA GRANDE SE DETIENE Y SE CENTRA.*/
+
+/*2.COLUMN DROP, COLUMNAS QUE SE APILAN UNA AL LADO DE LA OTRA AL ACOSTARSE, ES LO QUE HACE FLEXBOX CON FLEX-WRAP:WRAP*/
+
+/*3.LAYOUT SHISTER LAS ZONAS CAMBIAN DE POSICION, CON EL CSS, SE RESUELVE CON GRID*/
+
+/*4.Tiny Tweaks SOLO SE USAN TAMAÑOS Y ESPACIOS, LA DISPOSICION NO CAMBIA*/
+
+/*5.OFF CAMERRS*/
 
 /* 16 · MOVIMIENTO           tema de la S19
 
@@ -1997,6 +2017,29 @@ h2{font-size: 2.8rem;}
     .seccion{padding: var(--esp-xl) var(--esp-lg);}
 }
 
+@media (max-width:600px){
+  .mosaico{
+    grid-template-columns:1fr;
+    grid-auto-rows: 24rem;
+  }
+  .pieza-ancha,
+  .pieza-alta,
+  .pieza-grande{
+  grid-column: auto;
+  grid-row: auto;
+  }
+  
+}/*Adaptar mosaico con piezas de distinto tamaño*/
+
+@media (max-width:400px){
+  .mosaico{
+    max-width: 130rem;
+    margin-left: auto;
+    margin-right: auto;
+    /*Mostly Fluid no solo encoge tambièn se detiene*/
+  }
+}
+
 
 /*Base del teléfono*/
 h1 {font-size: 3.2rem;}
@@ -2085,6 +2128,47 @@ h1,h2,h3{
 }
 }
 
+
+@media(max-width: 767px){
+  .video-envoltorio{
+    border-radius: 0;
+  }
+}
+
+@media print{
+  .video-envoltorio{
+    display: none;
+  }
+}
+
+@media (max-width: 767px){
+  .testimonio{
+    font-size: 1.7rem;
+    max-width: 65ch;
+  .cita{
+    padding: var(--esp-lg);
+  }
+  .cita-texto{
+    font-size: 2.0rem;
+  }
+
+  }
+}
+
+@media (min-width: 1824px){
+  .testimonio{
+    font-size: 3.1rem;
+    max-width: 65ch;
+  .cita{
+    padding: var(--esp-lg);
+  }
+  .cita-texto{
+    font-size: 2.2rem;
+  }
+
+  }
+}
+
 /*MOSTRAR ENLACES*/
 main a[href^="http"]::after{
     content: "(" attr(href)")";
@@ -2142,4 +2226,14 @@ main a[href^="http"]::after{
 .menu-boton:focus-within{
     outline: 0.2rem solid var(--color-acento);
     outline-offset: 0.2rem;
+}
+
+.video-envoltorio{
+  max-width: auto;
+  margin: 8rem;
+  aspect-ratio: 16/9;
+  background-color: var(--color-tinta);
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra-2);
 }
