@@ -874,6 +874,18 @@ img {
   font-style: italic;
 }
 
+/*base-telèfono-una columna.Layout sifter*/
+#historia .dos-columnas{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'images'
+                       'texto';
+  gap: var(--esp--md);
+  /*Es mòvil, la imagen va a arriba, una imagen o una foto capta la atenciòn y situa el contenido antes de leer*/
+}
+
+#historia .columna-texto{grid-area: 'texto';}
+#historia .columna-imagen{grid-area: 'imagen';}
 
 /* 10 · LISTAS Y GLOSARIO           tema de la S14 */
 
@@ -2051,6 +2063,24 @@ h2{font-size: 2.8rem;}
 
 }
 }
+
+
+@media (min-width: 768px){
+#historia .dos-columnas{
+  grid-template-columns: 3fr 2fr;
+  grid-area: 'texto imagen';
+}
+}
+
+/*vista de escritorio*/
+
+@media (min-width: 1200px){
+#historia .dos-columnas{
+  grid-template-columns: 3fr 4fr;
+  grid-area: 'imagen texto';
+}
+}
+
 
 
 /*Base del teléfono*/
