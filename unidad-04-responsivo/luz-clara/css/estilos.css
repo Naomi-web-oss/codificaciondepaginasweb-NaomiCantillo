@@ -2132,10 +2132,10 @@ h2{font-size: 2.8rem;}
 #historia .dos-columnas{
   grid-template-columns: 3fr 2fr;
   grid-area: 'texto imagen';
-}
+}/*La imagen cambia de lado sin encoger o bajar*/
 }
 
-/*vista de escritorio*/
+/*OFF Canvas solo para pantallas pequeñas*/
 
 @media (min-width: 1200px){
 #historia .dos-columnas{
@@ -2144,6 +2144,31 @@ h2{font-size: 2.8rem;}
 }
 }
 
+@media (min-width:1024px){
+  .panel-boton,
+  .panel-cerrar{
+    display: none;
+  }
+  .panel-fondo{
+    display: none;
+  }
+
+  .panel-lateral{
+    position: static;
+    transform: none;
+    width: auto;
+    height: auto;
+    padding-left: 5rem;
+    z-index: auto;
+  }
+
+ #mosaico{
+  display: grid;
+  grid-template-columns: 24rem 1fr;
+  gap: var(--esp-lg);
+  align-items: center;
+ }
+}
 
 
 /*Base del teléfono*/
@@ -2273,6 +2298,8 @@ h1,h2,h3{
 
   }
 }
+
+
 
 /*MOSTRAR ENLACES*/
 main a[href^="http"]::after{
