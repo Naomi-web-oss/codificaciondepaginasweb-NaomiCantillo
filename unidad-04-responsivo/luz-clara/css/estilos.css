@@ -467,7 +467,7 @@ img {
   /*  AQUÍ VA LA IMAGEN DE FONDO
      Descomente la línea siguiente cuando coloque el archivo en
      recursos/portada.jpg                                              */
-  background-image: url('../recursos/portada.webp');   /* <- ya activa */
+  background-image: url('../recursos/portada-grande.webp');   /* <- ya activa */
 
   background-color: var(--color-marca);
   /* Un color de respaldo, por si la imagen no carga o todavía no se
@@ -1429,81 +1429,6 @@ line-height: 1.6;
        las demás y toda la fila temblaría.                             */
 }
 
-/*  ANIMACIÓN DE ENTRADA  */
-@keyframes aparecer {
-  /* @keyframes define un GUION con nombre. Aquí describe:
-     "empezá invisible y 20px más abajo, y terminá visible en tu sitio".
-
-     OJO: Definir la animación NO la ejecuta. Solo se activa cuando algún
-       selector la invoca con la propiedad  animation.                 */
-  from {
-    opacity: 0;
-    transform: translateY(2rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.tarjeta {
-  animation: aparecer 0.6s ease-out backwards;
-  /*         nombre | duración | ritmo | relleno
-
-     backwards hace que el elemento tome el estado inicial (invisible)
-     ANTES de que empiece la animación. Sin eso, durante el retardo de
-     la regla siguiente la tarjeta se vería un instante antes de
-     desaparecer y volver a aparecer.                                  */
-}
-
-.fila-servicios .tarjeta:nth-child(1) { animation-delay: 0s; }
-.fila-servicios .tarjeta:nth-child(2) { animation-delay: 0.12s; }
-.fila-servicios .tarjeta:nth-child(3) { animation-delay: 0.24s; }
-/* OJO: EL RETARDO ESCALONADO.
-   Las tres tarjetas aparecen una tras otra en vez de todas a la vez.
-   El efecto en cascada se percibe más cuidado y cuesta tres líneas.
-
-   Usa :nth-child, la pseudo-clase de posición: (1) es la primera,
-   (2) la segunda, y así.                                              */
-
-/*  ANIMACIÓN EN BUCLE · con mucha moderación  */
-@keyframes latido {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.06); }
-  /* Con PORCENTAJES se definen varios momentos, no solo el inicio y el
-     final.
-     OJO: 0% y 100% comparten el mismo valor para que el ciclo sea
-       continuo: al terminar, el elemento está donde empezó y el ciclo
-       siguiente arranca sin salto.                                    */
-}
-
-.menu-enlace.activo::after {
-  content: '';
-  /* Un pseudo-elemento vacío que sirve solo como forma: el puntito
-     bajo el enlace de la página actual.                              */
-  display: block;
-  width: 0.6rem;
-  height: 0.6rem;
-  border-radius: 50%;
-  background-color: var(--color-acento);
-  margin: 0.3rem auto 0;
-  animation: latido 2.5s ease-in-out infinite;
-  /*                                   se repite sin fin            */
-}
-
-/* OJO: EL CRITERIO SOBRE LAS ANIMACIONES EN BUCLE
-   Una animación que nunca se detiene tiene un costo: compite por la
-   atención de quien lee, consume batería y puede resultar molesta.
-
-   Por eso se usa con moderación:
-     OK UN elemento pequeño que marca algo (este puntito)
-     NO Varios elementos animándose a la vez
-     NO Algo que la persona necesita leer con calma
-
-   En este sitio se anima UN puntito de 6px. Si se animaran las seis
-   fotos de la galería, la página resultaría agotadora.                */
-
-
 /* 18 · PÁGINA DE GALERÍA           temas de la S16 y la S17
 
    OJO: CÓMO USAR ESTE BLOQUE
@@ -2092,6 +2017,146 @@ h2{font-size: 2.8rem;}
     .seccion{padding: var(--esp-xl) var(--esp-lg);}
 }
 
+
+/*Base del teléfono*/
+h1 {font-size: 3.2rem;}
+h2 {font-size: 2.4rem;}
+h3 {font-size: 1.8rem;}
+body{font-size: 1.6rem;
+}
+
+@media (min-width:768px){
+h1 {font-size: 4.0rem;}
+h2 {font-size: 2.8rem;}
+h3 {font-size: 1.9rem;}
+}
+
+@media (min-width:1024px){
+h1 {font-size: 4.8rem;}
+h2 {font-size: 3.2rem;}
+h3 {font-size: 2.0rem;}
+}
+
+.tabla-envoltorio{
+  overflow-x:auto ;
+}
+
+@media (min-width:768px){
+    main p {max-width: 65ch;}
+.tabla th,
+.tabla td{
+    padding: var(--esp-xs);
+    font-size: 1.4rem;
+}
+ }   
+
+@media (min-width:768px){
+    main p {max-width: 65ch;}
+
+.menu a{
+    border-bottom: none;
+    display: inline-block;
+}
+}
+
+@media (min-width: 768px){
+    .menu-boton{
+        display: none;
+    }
+    .menu{
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 500px){
+    .portada{
+        min-height: 100vh;
+        padding: var(--esp-md);
+    }
+
+    .portada-titulo{
+        font-size: 2.4rem;
+    }
+
+    .portada-bajada{
+        font-size: 1.5rem;
+    }
+}
+
+/*LAS CONSULTAS DISPONIBLES
+@media (min-width: 768px) ancho mìnimo
+@media (max-width: 768px) ancho màximo
+@media (min-heigth: 600px) alto mìnimo
+@media (orientation:portrait) vertical
+@media (orienation:landscape) horizontal
+@media print impresiòn de la pàginas
+@media (prefers-reduced-motion) preferencia de movimiento
+@media (prefers-color-sheme: dark) tema oscuro
+*/
+
+@media print{
+/*QUITAR LO QUE NO SIRVE AL IMPRIMIR*/
+.cabecera{display: none;}
+.menu-boton{display: none;}
+.pie{display: none;}
+.boton{display: none;}
+.volver-arriba{display: none;}
+.fila-etiquetas{display: none;}
+body{
+ background-color: var(--color-blanco);
+}
+
+.table .tarjeta  figure{
+    page-break-inside:avoid;
+}
+
+h1,h2,h3{
+    page-break-after:avoid;
+}
+}
+
+
+@media(max-width: 767px){
+  .video-envoltorio{
+    border-radius: 0;
+  }
+}
+
+@media print{
+  .video-envoltorio{
+    display: none;
+  }
+}
+
+@media (max-width: 767px){
+  .testimonio{
+    font-size: 1.7rem;
+    max-width: 65ch;
+  .cita{
+    padding: var(--esp-lg);
+  }
+  .cita-texto{
+    font-size: 2.0rem;
+  }
+
+  }
+}
+
+@media (min-width: 1824px){
+  .testimonio{
+    font-size: 3.1rem;
+    max-width: 65ch;
+  .cita{
+    padding: var(--esp-lg);
+  }
+  .cita-texto{
+    font-size: 2.2rem;
+  }
+
+  }
+}
+
 @media (max-width:600px){
   .mosaico{
     grid-template-columns:1fr;
@@ -2171,134 +2236,6 @@ h2{font-size: 2.8rem;}
 }
 
 
-/*Base del teléfono*/
-h1 {font-size: 3.2rem;}
-h2 {font-size: 2.4rem;}
-h3 {font-size: 1.8rem;}
-body{font-size: 1.6rem;
-}
-
-@media (min-width:768px){
-h1 {font-size: 4.0rem;}
-h2 {font-size: 2.8rem;}
-h3 {font-size: 1.9rem;}
-}
-
-@media (min-width:1024px){
-h1 {font-size: 4.8rem;}
-h2 {font-size: 3.2rem;}
-h3 {font-size: 2.0rem;}
-}
-
-.tabla-envoltorio{
-  overflow-x:auto ;
-}
-
-@media (min-width:768px){
-    main p {max-width: 65ch;}
-.tabla th,
-.tabla td{
-    padding: var(--esp-xs);
-    font-size: 1.4rem;
-}
- }   
-
-@media (min-width:768px){
-    main p {max-width: 65ch;}
-
-.menu a{
-    border-bottom: none;
-    display: inline-block;
-}
-}
-
-@media (min-width: 768px){
-    .menu-boton{
-        display: none;
-    }
-    .menu{
-        display: flex;
-        flex-direction: row;
-    }
-}
-
-@media (orientation: landscape) and (max-width: 500px){
-    .portada{
-        min-height: 100vh;
-        padding: var(--esp-md);
-    }
-
-    .portada-titulo{
-        font-size: 2.4rem;
-    }
-
-    .portada-bajada{
-        font-size: 1.5rem;
-    }
-}
-
-@media print{
-/*QUITAR LO QUE NO SIRVE AL IMPRIMIR*/
-.cabecera{display: none;}
-.menu-boton{display: none;}
-.pie{display: none;}
-.boton{display: none;}
-.volver-arriba{display: none;}
-.fila-etiquetas{display: none;}
-body{
- background-color: var(--color-blanco);
-}
-
-.table .tarjeta  figure{
-    page-break-inside:avoid;
-}
-
-h1,h2,h3{
-    page-break-after:avoid;
-}
-}
-
-
-@media(max-width: 767px){
-  .video-envoltorio{
-    border-radius: 0;
-  }
-}
-
-@media print{
-  .video-envoltorio{
-    display: none;
-  }
-}
-
-@media (max-width: 767px){
-  .testimonio{
-    font-size: 1.7rem;
-    max-width: 65ch;
-  .cita{
-    padding: var(--esp-lg);
-  }
-  .cita-texto{
-    font-size: 2.0rem;
-  }
-
-  }
-}
-
-@media (min-width: 1824px){
-  .testimonio{
-    font-size: 3.1rem;
-    max-width: 65ch;
-  .cita{
-    padding: var(--esp-lg);
-  }
-  .cita-texto{
-    font-size: 2.2rem;
-  }
-
-  }
-}
-
 
 
 /*MOSTRAR ENLACES*/
@@ -2369,3 +2306,78 @@ main a[href^="http"]::after{
   overflow: hidden;
   box-shadow: var(--sombra-2);
 }
+
+/*  ANIMACIÓN DE ENTRADA  */
+@keyframes aparecer {
+  /* @keyframes define un GUION con nombre. Aquí describe:
+     "empezá invisible y 20px más abajo, y terminá visible en tu sitio".
+
+     OJO: Definir la animación NO la ejecuta. Solo se activa cuando algún
+       selector la invoca con la propiedad  animation.                 */
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tarjeta {
+  animation: aparecer 0.6s ease-out backwards;
+  /*         nombre | duración | ritmo | relleno
+
+     backwards hace que el elemento tome el estado inicial (invisible)
+     ANTES de que empiece la animación. Sin eso, durante el retardo de
+     la regla siguiente la tarjeta se vería un instante antes de
+     desaparecer y volver a aparecer.                                  */
+}
+
+.fila-servicios .tarjeta:nth-child(1) { animation-delay: 0s; }
+.fila-servicios .tarjeta:nth-child(2) { animation-delay: 0.12s; }
+.fila-servicios .tarjeta:nth-child(3) { animation-delay: 0.24s; }
+/* OJO: EL RETARDO ESCALONADO.
+   Las tres tarjetas aparecen una tras otra en vez de todas a la vez.
+   El efecto en cascada se percibe más cuidado y cuesta tres líneas.
+
+   Usa :nth-child, la pseudo-clase de posición: (1) es la primera,
+   (2) la segunda, y así.                                              */
+
+/*  ANIMACIÓN EN BUCLE · con mucha moderación  */
+@keyframes latido {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); }
+  /* Con PORCENTAJES se definen varios momentos, no solo el inicio y el
+     final.
+     OJO: 0% y 100% comparten el mismo valor para que el ciclo sea
+       continuo: al terminar, el elemento está donde empezó y el ciclo
+       siguiente arranca sin salto.                                    */
+}
+
+.menu-enlace.activo::after {
+  content: '';
+  /* Un pseudo-elemento vacío que sirve solo como forma: el puntito
+     bajo el enlace de la página actual.                              */
+  display: block;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: var(--color-acento);
+  margin: 0.3rem auto 0;
+  animation: latido 2.5s ease-in-out infinite;
+  /*                                   se repite sin fin            */
+}
+
+/* OJO: EL CRITERIO SOBRE LAS ANIMACIONES EN BUCLE
+   Una animación que nunca se detiene tiene un costo: compite por la
+   atención de quien lee, consume batería y puede resultar molesta.
+
+   Por eso se usa con moderación:
+     OK UN elemento pequeño que marca algo (este puntito)
+     NO Varios elementos animándose a la vez
+     NO Algo que la persona necesita leer con calma
+
+   En este sitio se anima UN puntito de 6px. Si se animaran las seis
+   fotos de la galería, la página resultaría agotadora.                */
+
